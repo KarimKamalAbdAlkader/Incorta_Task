@@ -1,0 +1,12 @@
+version: '3'
+services:
+     airportsv2:
+            build:
+                context: .
+                dockerfile: Dockerfile-airportsv2
+            ports:
+                - "8080"
+            container_name: airportsv2
+            restart: always
+            external_links:
+                - reverseproxy:reverseproxy

@@ -1,0 +1,3 @@
+FROM adoptopenjdk/openjdk8:latest
+COPY ./countries-assembly-1.0.1.jar .
+CMD java -jar countries-assembly-1.0.1.jar

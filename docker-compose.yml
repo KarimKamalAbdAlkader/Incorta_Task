@@ -1,0 +1,32 @@
+version: '3'
+services:
+    reverseproxy:
+        build: .
+        ports:
+            - 8000:8000
+        links:
+            - airports
+            - countries
+        restart: always
+ 
+    airports:
+       # depends_on:
+       #     - reverseproxy
+        build:
+            context: .
+            dockerfile: Dockerfile1
+        ports:
+            - "8080"
+        container_name: airports
+        restart: always
+ 
+    countries:
+      # depends_on:
+      #     - reverseproxy
+        build:
+            context: .
+            dockerfile: Dockerfile2
+        ports:
+            - "8080"
+        container_name: countries
+        restart: always
